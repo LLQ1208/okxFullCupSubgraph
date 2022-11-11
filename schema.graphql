@@ -1,6 +1,19 @@
-type ExampleEntity @entity {
+type TransferSingle @entity {
   id: ID!
-  count: BigInt!
-  previousAdmin: Bytes! # address
-  newAdmin: Bytes! # address
+  # address
+  operator: String!
+  from: String!
+  to: String!
+  param_id: BigInt!
+  value: BigInt!
+}
+
+type TransferBatch @entity {
+  id: ID!
+  # address
+  operator: String!
+  from: String!
+  to: String!
+  ids: String!
+  values: String!
 }

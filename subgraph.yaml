@@ -1,4 +1,4 @@
-specVersion: 0.0.1
+specVersion: 0.0.4
 schema:
   file: ./schema.graphql
 dataSources:
@@ -10,7 +10,7 @@ dataSources:
       abi: okxFullCup
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.5
+      apiVersion: 0.0.6
       language: wasm/assemblyscript
       entities:
         - AdminChanged
@@ -30,30 +30,8 @@ dataSources:
         - name: okxFullCup
           file: ./abis/okxFullCup.json
       eventHandlers:
-        - event: AdminChanged(address,address)
-          handler: handleAdminChanged
-        - event: ApprovalForAll(indexed address,indexed address,bool)
-          handler: handleApprovalForAll
-        - event: BeaconUpgraded(indexed address)
-          handler: handleBeaconUpgraded
-        - event: Canceled(bool)
-          handler: handleCanceled
-        - event: ClaimEnabled(bool)
-          handler: handleClaimEnabled
-        - event: Initialized(uint8)
-          handler: handleInitialized
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
         - event: TransferBatch(indexed address,indexed address,indexed address,uint256[],uint256[])
           handler: handleTransferBatch
         - event: TransferSingle(indexed address,indexed address,indexed address,uint256,uint256)
           handler: handleTransferSingle
-        - event: URI(string,indexed uint256)
-          handler: handleURI
-        - event: UnStaked(indexed address,uint256)
-          handler: handleUnStaked
-        - event: Upgraded(indexed address)
-          handler: handleUpgraded
-        - event: WithdrawEnabled(bool)
-          handler: handleWithdrawEnabled
       file: ./src/okx-full-cup.ts
